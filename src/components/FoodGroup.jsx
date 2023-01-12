@@ -124,9 +124,9 @@ export default function FoodGroup(props){
                                 }
                                 
                                 {/* price */}
-                                <li className="mb-2">£{foodItem.price}</li>
+                                <li className="mb-2">£{foodItem.price.toFixed(2)}</li>
 
-                                <button className="bg-green-800 text-white p-2 rounded-sm">Add to Order</button>
+                                <button className="bg-green-800 text-white p-2 rounded-sm" onClick={()=>props.addToOrder(foodItem.price)}>Add to Order</button>
                                 
 
                             </ul>
