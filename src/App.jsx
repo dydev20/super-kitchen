@@ -12,16 +12,16 @@ function App() {
   })
 
   /* function to add to an order */
-  function addToOrder(price) {
-    setOrder(order => {
+  function addToOrder(item,name,price) {
+    setOrder(prevOrder => {
       return {
-
-        totalPrice: order.totalPrice + price
+        
+        items:[...prevOrder.items,{itemName:name,styles:item.styles}],
+        totalPrice: prevOrder.totalPrice + price
 
       }
     })
-    console.log(order)
-
+    
   }
 
   return (

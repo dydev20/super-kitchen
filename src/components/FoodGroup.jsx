@@ -1,6 +1,22 @@
 import React from "react"
 
 export default function FoodGroup(props){
+    const [addItem,setAddItem]=React.useState({
+        styles:"",
+        options:[],
+        with:""
+    })
+
+    function handleChange(e){
+        const {name,value,type,checked}=e.target
+        setAddItem(prevAddItem=>{
+            return{
+                ...prevAddItem,
+                [name]:type==="checkbox" ? checked :value
+            }
+        })
+        
+    }
 
     /* not all food items in a food group has the same properties */
     /* function to check if a food item in a particular item group has a property */
@@ -31,8 +47,14 @@ export default function FoodGroup(props){
             return (
                 <li className="mb-2">
                     <div>
-                        <label htmlFor="">{foodItem.options}</label>
-                        <input type="checkbox" />
+                        <label htmlFor="option">{foodItem.options}</label>
+                        <input 
+                            type="checkbox" 
+                            id="option"
+                            name="options"
+                            value={addItem.options}
+                            onChange={handleChange}
+                        />
                     </div>
                 </li>
             )
@@ -46,8 +68,15 @@ export default function FoodGroup(props){
                         
                         <li key={option}>
                             <div >
-                                <label htmlFor="">{option}</label>
-                                <input type="checkbox"/>
+                                <label htmlFor="options">{option}</label>
+                                <input 
+                                    type="checkbox"
+                                    id="options"
+                                    name="options"
+                                    value={addItem.options}
+                                    onChange={handleChange}
+
+                                />
                             </div>
                         </li>
                     )
@@ -59,6 +88,7 @@ export default function FoodGroup(props){
         }
     }
 
+    
     return(
         <div>
             {/* food group name */}
@@ -88,12 +118,20 @@ export default function FoodGroup(props){
                                 {objectHasProperty(foodItem, "styles") &&
                                     <li className="mb-2">
                                         <div className="flex flex-col w-2/4 mx-auto">
-                                            <label htmlFor="" className="mb-1">Styles</label>
-                                            <select name="" id="" className="p-2 border-2 border-slate-400 rounded-sm">
+                                            <label htmlFor="styles" className="mb-1">Styles</label>
+                                            <select 
+                                                name="styles" 
+                                                id="styles" 
+                                                className="p-2 border-2 border-slate-400 rounded-sm"
+                                                value={addItem.styles}
+                                                onChange={handleChange}
+                                                
+                                            >
+                                                <option value="">--Choose style--</option>
                                                 
 
                                                 {foodItem.styles.map(style => {
-                                                    return (<option value="" key={style}>{style}</option>)
+                                                    return (<option value={style} key={style}>{style}</option>)
                                                 })}
                                             </select>
                                         </div>
@@ -111,12 +149,19 @@ export default function FoodGroup(props){
                                 {objectHasProperty(foodItem, "with") &&
                                     <li className="mb-2">
                                         <div className="flex flex-col w-2/4 mx-auto">
-                                            <label htmlFor="" className="mb-1">With</label>
-                                            <select name="" id="" className="p-2 border-2 border-slate-400 rounded-sm">
+                                            <label htmlFor="with" className="mb-1">With</label>
+                                            <select 
+                                                name="with" 
+                                                id="with" 
+                                                className="p-2 border-2 border-slate-400 rounded-sm"
+                                                value={addItem.with}
+                                                onChange={handleChange}
+                                            >
                                                 
+                                                <option value="">--with--</option>
 
                                                 {foodItem.with.map(item => {
-                                                    return (<option value="" key={item}>{item}</option>)
+                                                    return (<option value={item} key={item}>{item}</option>)
                                                 })}
                                             </select>
                                         </div>
@@ -126,7 +171,10 @@ export default function FoodGroup(props){
                                 {/* price */}
                                 <li className="mb-2">£{foodItem.price.toFixed(2)}</li>
 
-                                <button className="bg-green-800 text-white p-2 rounded-sm" onClick={()=>props.addToOrder(foodItem.price)}>Add to Order</button>
+                                <button 
+                                    className="bg-green-800 text-white p-2 rounded-sm" 
+                                    onClick={()=>props.addToOrder(addItem,foodItem.name,foodItem.price)}
+                                >Add to Order</button>
                                 
 
                             </ul>
