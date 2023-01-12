@@ -21,41 +21,41 @@ export default function FoodGroup(props){
     }
 
     /* function that renders the food item options */
-    /* checks if the food item has the options property and then checks if the value of options is of type string*/
+    /* checks if the value of options is of type string*/
     /* if type string then render a single checkbox, if options is an array then map to render a checkbox for each element in array */
     function renderFoodItemOptions(foodItem){
         
         
-        if (objectHasProperty(foodItem, "options")===true){
-            if(typeOfValueIsString(foodItem.options)===true){
-                return (
-                    <li className="mb-2">
-                        <div>
-                            <label htmlFor="">{foodItem.options}</label>
-                            <input type="checkbox" />
-                        </div>
-                    </li>
-                )
-            }else{
-                return (
+        
+        if(typeOfValueIsString(foodItem.options)===true){
+            return (
+                <li className="mb-2">
+                    <div>
+                        <label htmlFor="">{foodItem.options}</label>
+                        <input type="checkbox" />
+                    </div>
+                </li>
+            )
+        }else{
+            return (
 
-                    
-                    foodItem.options.map(option=>{
-                    
-                        return(
-                            
-                            <li key={option}>
-                                <div >
-                                    <label htmlFor="">{option}</label>
-                                    <input type="checkbox"/>
-                                </div>
-                            </li>
-                        )
-                            
-                    })
-                    
-                )
-            }
+                
+                foodItem.options.map(option=>{
+                
+                    return(
+                        
+                        <li key={option}>
+                            <div >
+                                <label htmlFor="">{option}</label>
+                                <input type="checkbox"/>
+                            </div>
+                        </li>
+                    )
+                        
+                })
+                
+            )
+        
         }
     }
 
@@ -101,7 +101,8 @@ export default function FoodGroup(props){
                                 }
 
                                 {/* options */}
-                                {
+                                {/* if food item has property "options then render options" */}
+                                {objectHasProperty(foodItem,"options") &&    
                                     <div className="flex flex-col gap-2 my-4 sm:flex-row justify-center">{renderFoodItemOptions(foodItem)}</div>
                                 }
 
