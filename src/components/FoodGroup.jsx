@@ -29,87 +29,106 @@ export default function FoodGroup(props){
         if (objectHasProperty(foodItem, "options")===true){
             if(typeOfValueIsString(foodItem.options)===true){
                 return (
-                    <div>
-                        <label htmlFor="">{foodItem.options}</label>
-                        <input type="checkbox" />
-                    </div>
-                    
+                    <li className="mb-2">
+                        <div>
+                            <label htmlFor="">{foodItem.options}</label>
+                            <input type="checkbox" />
+                        </div>
+                    </li>
                 )
             }else{
                 return (
+
+                    
                     foodItem.options.map(option=>{
-                        
+                    
                         return(
-                            <div key={option}>
-                                <label htmlFor="">{option}</label>
-                                <input type="checkbox" />
-                            </div>
                             
+                            <li key={option}>
+                                <div >
+                                    <label htmlFor="">{option}</label>
+                                    <input type="checkbox"/>
+                                </div>
+                            </li>
                         )
-                    }))
+                            
+                    })
+                    
+                )
             }
         }
     }
 
     return(
         <div>
-            <div>
-                {/* food group name */}
-                <h2>{props.name}</h2>
+            {/* food group name */}
+            <h2 className="font-bold text-center">{props.name}</h2> 
+
+            <div className="border-2 border-slate-500 rounded-t text-center w-11/12 mx-auto mb-8 mt-4">
+                
 
                 {
                     props.foodGroup.map(foodItem=>{
                         return(
-                            <div key={foodItem.id}>
-                                <div>
-                                    <p>{foodItem.name}</p>
-                                    {/* if food item has property "quantity" then render quantity value */}
-                                    {objectHasProperty(foodItem, "quantity") && <p>({foodItem.quantity})</p>}
+                            <ul key={foodItem.id} className="border-b-2 border-slate-400 last:border-none py-4">
+                                <li className="mb-2">
 
-                                </div>
+                                
+                                    <div className="flex justify-center gap-1">
+                                        <p className="font-semibold">{foodItem.name}</p>
 
-                                {/* price */}
-                                <p>£{foodItem.price}</p>
+                                        {/* if food item has property "quantity" then render quantity value */}
+                                        {objectHasProperty(foodItem, "quantity") && <p className="text-sm self-center">({foodItem.quantity})</p>}
 
+                                    </div>
+                                </li>
+                                
                                 {/* styles */}
                                 {/* if food item has property "styles" then map */}
                                 {objectHasProperty(foodItem, "styles") &&
+                                    <li className="mb-2">
+                                        <div className="flex flex-col w-2/4 mx-auto">
+                                            <label htmlFor="" className="mb-1">Styles</label>
+                                            <select name="" id="" className="p-2 border-2 border-slate-400 rounded-sm">
+                                                
 
-                                    <div>
-                                        <select name="" id="">
-                                            
-
-                                            {foodItem.styles.map(style => {
-                                                return (<option value="" key={style}>{style}</option>)
-                                            })}
-                                        </select>
-                                    </div>
+                                                {foodItem.styles.map(style => {
+                                                    return (<option value="" key={style}>{style}</option>)
+                                                })}
+                                            </select>
+                                        </div>
+                                    </li>
                                 }
 
                                 {/* options */}
                                 {
-                                    renderFoodItemOptions(foodItem)
+                                    <div className="flex flex-col gap-2 my-4 sm:flex-row justify-center">{renderFoodItemOptions(foodItem)}</div>
                                 }
 
                                 {/* with */}
                                 {/* if food item has property "with" then map */}
                                 {objectHasProperty(foodItem, "with") &&
+                                    <li className="mb-2">
+                                        <div className="flex flex-col w-2/4 mx-auto">
+                                            <label htmlFor="" className="mb-1">With</label>
+                                            <select name="" id="" className="p-2 border-2 border-slate-400 rounded-sm">
+                                                
 
-                                    <div>
-                                        <select name="" id="">
-                                            
-
-                                            {foodItem.with.map(item => {
-                                                return (<option value="" key={item}>{item}</option>)
-                                            })}
-                                        </select>
-                                    </div>
+                                                {foodItem.with.map(item => {
+                                                    return (<option value="" key={item}>{item}</option>)
+                                                })}
+                                            </select>
+                                        </div>
+                                    </li>
                                 }
                                 
+                                {/* price */}
+                                <li className="mb-2">£{foodItem.price}</li>
+
+                                <button className="bg-green-800 text-white p-2 rounded-sm">Add to Order</button>
                                 
 
-                                
-                            </div>
+                            </ul>
                         )
                     }
                         
