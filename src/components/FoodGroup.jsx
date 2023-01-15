@@ -1,21 +1,44 @@
 import React from "react"
 
 export default function FoodGroup(props){
-    const [addItem,setAddItem]=React.useState({
+    const [itemExtras,setItemExtras]=React.useState({
         styles:"",
         options:[],
         with:""
     })
 
+    React.useEffect(()=>{
+        console.log(itemExtras)
+    },[itemExtras])
+
     function handleChange(e){
         const {name,value,type,checked}=e.target
-        setAddItem(prevAddItem=>{
-            return{
-                ...prevAddItem,
-                [name]:type==="checkbox" ? checked :value
-            }
-        })
-        
+
+        if(type!=="checkbox"){
+            setItemExtras(prevItemExtras=>{
+                return{
+                    ...prevItemExtras,
+                    [name]:value
+                }
+            })
+        }
+
+        if(checked){
+            setItemExtras(prevItemExtras=>{
+                return{
+                    ...prevItemExtras,
+                    options:[...prevItemExtras.options,value]
+                }
+            })
+        }else{
+            setItemExtras(prevItemExtras => {
+                return{
+                    ...prevItemExtras,
+                    options:[...prevItemExtras.options.filter(extra=>extra!==value)]
+                }
+            })
+        }
+        /* console.log(itemExtras) */
     }
 
     /* not all food items in a food group has the same properties */
@@ -52,7 +75,7 @@ export default function FoodGroup(props){
                             type="checkbox" 
                             id="option"
                             name="options"
-                            value={addItem.options}
+                            value={foodItem.options}
                             onChange={handleChange}
                         />
                     </div>
@@ -73,7 +96,7 @@ export default function FoodGroup(props){
                                     type="checkbox"
                                     id="options"
                                     name="options"
-                                    value={addItem.options}
+                                    value={option}
                                     onChange={handleChange}
 
                                 />
@@ -123,7 +146,6 @@ export default function FoodGroup(props){
                                                 name="styles" 
                                                 id="styles" 
                                                 className="p-2 border-2 border-slate-400 rounded-sm"
-                                                value={addItem.styles}
                                                 onChange={handleChange}
                                                 
                                             >
@@ -154,7 +176,6 @@ export default function FoodGroup(props){
                                                 name="with" 
                                                 id="with" 
                                                 className="p-2 border-2 border-slate-400 rounded-sm"
-                                                value={addItem.with}
                                                 onChange={handleChange}
                                             >
                                                 
@@ -171,10 +192,10 @@ export default function FoodGroup(props){
                                 {/* price */}
                                 <li className="mb-2">£{foodItem.price.toFixed(2)}</li>
 
-                                <button 
+                                {/* <button 
                                     className="bg-green-800 text-white p-2 rounded-sm" 
                                     onClick={()=>props.addToOrder(addItem,foodItem.name,foodItem.price)}
-                                >Add to Order</button>
+                                >Add to Order</button> */}
                                 
 
                             </ul>
