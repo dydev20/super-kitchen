@@ -5,25 +5,36 @@ import FoodGroup from "./components/FoodGroup"
 import PriceDisplay from "./components/PriceDisplay"
 
 function App() {
-  const [order, setOrder] = React.useState({
-    items: [],
-    totalPrice: 0
+  
+  const [order, setOrder] = React.useState([])
+  
+  const [totalPrice,setTotalPrice]=React.useState(0)
 
-  })
+  /* function that adds the selected food item to the order */
+  function addToOrder(item) {
 
-  /* function to add to an order */
-  function addToOrder(item,name,price) {
     setOrder(prevOrder => {
-      return {
-        
-        items:[...prevOrder.items,{itemName:name,styles:item.styles}],
-        totalPrice: prevOrder.totalPrice + price
 
-      }
+      return [
+        ...prevOrder, item
+
+      ]
+
     })
-    
+
   }
 
+  /* when order state changes, calculate and set totalPrice state */
+  React.useEffect(()=>{
+
+    setTotalPrice(order.reduce((total, item) => {
+      return total + item.price
+    }, 0))
+    
+  },[order])
+
+  
+  
   return (
     <div className="App">
       <Menu />
@@ -72,9 +83,9 @@ function App() {
       />
 
       <PriceDisplay 
-        addToOrder={addToOrder}
-        orderPrice={order.totalPrice}
+        totalPrice={totalPrice}
       />
+
     </div>
   )
 }

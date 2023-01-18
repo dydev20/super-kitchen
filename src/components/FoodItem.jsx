@@ -8,11 +8,31 @@ export default function FoodItem(props){
         with: ""
     })
 
-    React.useEffect(() => {
-        console.log(itemExtras)
-    }, [itemExtras])
+    const [addItem,setAddItem]=React.useState({
+        name:"",
+        price:0
+    })
 
+    /* function that adds the properties of the itemExtras object into the addItem object when Add to Order button is clicked  */
+    function handleAddItem(name,price){
+        setAddItem({
+            
+            name:name,
+            price:price,
+            ...itemExtras
+        })
+            
+    }
+
+    /* adds item to the order when addItem is set*/
+    React.useEffect(()=>{
+        props.addToOrder(addItem)
+    },[addItem])
+    
+
+    /* function that sets itemExtras to the value of the selected dropdown/checked checkbox */
     function handleChange(e) {
+        
         const { name, value, type, checked } = e.target
 
         if (type !== "checkbox") {
@@ -24,14 +44,14 @@ export default function FoodItem(props){
             })
         }
 
-        if (checked) {
+        if (checked) { /* add checked food item optionals to options array */
             setItemExtras(prevItemExtras => {
                 return {
                     ...prevItemExtras,
                     options: [...prevItemExtras.options, value]
                 }
             })
-        } else {
+        } else { /* remove unchecked food item optionals from options array  */
             setItemExtras(prevItemExtras => {
                 return {
                     ...prevItemExtras,
@@ -39,7 +59,7 @@ export default function FoodItem(props){
                 }
             })
         }
-        /* console.log(itemExtras) */
+        
     }
 
     /* not all food items in a food group has the same properties */
@@ -182,10 +202,11 @@ export default function FoodItem(props){
             {/* price */}
             <li className="mb-2">£{props.foodItem.price.toFixed(2)}</li>
 
-            {/* <button 
-                                    className="bg-green-800 text-white p-2 rounded-sm" 
-                                    onClick={()=>props.addToOrder(addItem,foodItem.name,foodItem.price)}
-                                >Add to Order</button> */}
+            <button 
+                className="bg-green-800 text-white p-2 rounded-sm" 
+                onClick={()=>handleAddItem(props.foodItem.name,props.foodItem.price)}
+            >Add to Order</button>
+            
 
 
         </ul>
