@@ -159,9 +159,7 @@ export default function FoodItem(props){
                             onChange={handleChange}
 
                         >
-                            <option value="">--Choose style--</option>
-
-
+                            
                             {props.foodItem.styles.map(style => {
                                 return (<option value={style} key={style}>{style}</option>)
                             })}
