@@ -30,7 +30,7 @@ export default function ViewOrder(props){
 
     return(
         <div>
-            <div className="relative w-[90%] mx-auto my-4 py-8 bg-orange-100 rounded-xl shadow-2xl ">
+            <div className="relative w-[90%] mx-auto my-4 py-8 bg-[#FFF6EA] rounded-xl shadow-2xl ">
                 <GrFormClose className="absolute top-2 right-2" size="2rem" onClick={props.handleViewOrder}/>
                 {renderOrderItems()}
                 <p className="text-green-800 text-center mt-5"><strong>Total Price £{props.totalPrice.toFixed(2)}</strong></p>
