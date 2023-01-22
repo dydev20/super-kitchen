@@ -327,7 +327,7 @@ export default{
                                         "id": 36,
                                         "name": "Rice",
                                         "price": 2.40,
-                                        "options": ["Fried rice", "Boiled rice"]
+                                        "styles": ["Fried rice", "Boiled rice"]
                                     },
                                     {
                                         "id": 37,
@@ -339,7 +339,7 @@ export default{
                                         "id": 38,
                                         "name": "Sauce",
                                         "price": 2.20,
-                                        "options": [
+                                        "styles": [
                                             "Curry sauce",
                                             "Gravy sauce",
                                             "Sweet & Sour sauce"
@@ -349,7 +349,7 @@ export default{
                                         "id": 39,
                                         "name": "Sauce",
                                         "price": 2.50,
-                                        "options": [
+                                        "styles": [
                                             "Satay sauce",
                                             "Peking sauce",
                                             "BBQ sauce"
