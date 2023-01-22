@@ -100,12 +100,13 @@ function App() {
         />
       </div>
 
-      <ViewOrder 
-        order={order}
-        viewOrder={viewOrder}
-        totalPrice={totalPrice}
-        handleViewOrder={handleViewOrder}
-      />
+      {viewOrder && 
+        <ViewOrder 
+          order={order}
+          viewOrder={viewOrder}
+          totalPrice={totalPrice}
+          handleViewOrder={handleViewOrder}
+        />}
       
       
       
