@@ -89,8 +89,9 @@ export default function FoodItem(props){
 
         if (typeOfValueIsString(foodItem.options) === true) {
             return (
-                <li className="mb-2">
-                    <div>
+                <div className="w-[70%] mx-auto max-w-sm">                
+                    <div className="flex">
+                        
                         <label htmlFor="option">{foodItem.options}</label>
                         <input
                             type="checkbox"
@@ -98,20 +99,23 @@ export default function FoodItem(props){
                             name="options"
                             value={foodItem.options}
                             onChange={handleChange}
+                            className="scale-150 ml-auto"
                         />
+                        
                     </div>
-                </li>
+                </div>
             )
         } else {
             return (
 
+                <div className="w-[70%] mx-auto max-w-sm">{
+                    foodItem.options.map(option => {
 
-                foodItem.options.map(option => {
+                        return (
 
-                    return (
-
-                        <li key={option}>
-                            <div >
+                            <div key={option} className="flex mb-2">
+                            
+                                
                                 <label htmlFor="options">{option}</label>
                                 <input
                                     type="checkbox"
@@ -119,13 +123,15 @@ export default function FoodItem(props){
                                     name="options"
                                     value={option}
                                     onChange={handleChange}
-
+                                    className="scale-150 ml-auto"
                                 />
+                                
                             </div>
-                        </li>
-                    )
+                        )
 
-                })
+                    })
+                }</div>
+                
 
             )
 
@@ -149,53 +155,55 @@ export default function FoodItem(props){
             {/* styles */}
             {/* if food item has property "styles" then map */}
             {objectHasProperty(props.foodItem, "styles") &&
-                <li className="mb-2">
-                    <div className="flex flex-col w-2/4 mx-auto">
-                        <label htmlFor="styles" className="mb-1">Styles</label>
-                        <select
-                            name="styles"
-                            id="styles"
-                            className="p-2 border-2 border-slate-400 rounded-sm"
-                            onChange={handleChange}
+                <li className="flex flex-col w-[70%] mx-auto mb-2">
+                    
+                    <label htmlFor="styles" className="mb-1">Styles</label>
+                    <select
+                        name="styles"
+                        id="styles"
+                        className="p-2 border-2 border-slate-400 rounded-sm text-center self-center w-full max-w-sm bg-white "
+                        onChange={handleChange}
 
-                        >
-                            <option value="">--Choose style--</option>
+                    >
+                        <option value="">-- Choose style --</option>
 
 
-                            {props.foodItem.styles.map(style => {
-                                return (<option value={style} key={style}>{style}</option>)
-                            })}
-                        </select>
-                    </div>
+                        {props.foodItem.styles.map(style => {
+                            return (<option value={style} key={style}>{style}</option>)
+                        })}
+                    </select>
+                    
                 </li>
             }
 
             {/* options */}
             {/* if food item has property "options then render options" */}
             {objectHasProperty(props.foodItem, "options") &&
-                <div className="flex flex-col gap-2 my-4 sm:flex-row justify-center">{renderFoodItemOptions(props.foodItem)}</div>
+                
+                <li className="my-4">{renderFoodItemOptions(props.foodItem)}</li>
+                
             }
 
             {/* with */}
             {/* if food item has property "with" then map */}
             {objectHasProperty(props.foodItem, "with") &&
-                <li className="mb-2">
-                    <div className="flex flex-col w-2/4 mx-auto">
-                        <label htmlFor="with" className="mb-1">With</label>
-                        <select
-                            name="with"
-                            id="with"
-                            className="p-2 border-2 border-slate-400 rounded-sm"
-                            onChange={handleChange}
-                        >
+                <li className="flex flex-col w-[70%] mx-auto mb-2">
+                
+                    <label htmlFor="with" className="mb-1">With</label>
+                    <select
+                        name="with"
+                        id="with"
+                        className="p-2 border-2 border-slate-400 rounded-sm text-center self-center w-full max-w-sm bg-white"
+                        onChange={handleChange}
+                    >
 
-                            <option value="">--Choose side--</option>
+                        <option value="">-- Choose side --</option>
 
-                            {props.foodItem.with.map(item => {
-                                return (<option value={item} key={item}>{item}</option>)
-                            })}
-                        </select>
-                    </div>
+                        {props.foodItem.with.map(item => {
+                            return (<option value={item} key={item}>{item}</option>)
+                        })}
+                    </select>
+                    
                 </li>
             }
 
