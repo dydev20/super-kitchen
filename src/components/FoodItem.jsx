@@ -11,8 +11,7 @@ export default function FoodItem(props){
         price:0
     })
 
-    /* || withRef.current.value === "" */
-    /* function that adds the properties of the itemExtras object into the addItem object when Add to Order button is clicked  */
+    /* function that adds the options array, value of selects into the addItem object when Add to Order button is clicked  */
     function handleAddItem(name,price){
         
         setAddItem({
@@ -103,7 +102,6 @@ export default function FoodItem(props){
 
                             <div key={option} className="flex mb-2">
                             
-                                
                                 <label htmlFor="options">{option}</label>
                                 <input
                                     type="checkbox"
@@ -130,7 +128,6 @@ export default function FoodItem(props){
         <ul key={props.foodItem.id} className="border-b-2 border-slate-400 last:border-none py-4">
             <li className="mb-2">
 
-
                 <div className="flex justify-center gap-1">
                     <p className="font-semibold">{props.foodItem.name}</p>
 
@@ -153,9 +150,7 @@ export default function FoodItem(props){
                         onChange={handleChange}
                         ref={styleRef}
                     >
-                        {/* <option value="" >-- Choose style --</option> */}
-
-
+                        
                         {props.foodItem.styles.map(style => {
                             return (<option value={style} key={style}>{style}</option>)
                         })}
@@ -186,8 +181,6 @@ export default function FoodItem(props){
                         ref={withRef}
                     >
 
-                        {/* <option value="" ref={withRef}>-- Choose side --</option> */}
-
                         {props.foodItem.with.map(item => {
                             return (<option value={item} key={item}>{item}</option>)
                         })}
@@ -200,7 +193,7 @@ export default function FoodItem(props){
             <li className="mb-2">£{props.foodItem.price.toFixed(2)}</li>
 
             <button 
-                className="bg-green-800 text-white p-2 rounded-sm" 
+                className="bg-green-800 text-white p-2 rounded-sm sm:w-1/2 max-w-xs" 
                 onClick={()=>handleAddItem(props.foodItem.name,props.foodItem.price)}
             >Add to Order</button>
             
