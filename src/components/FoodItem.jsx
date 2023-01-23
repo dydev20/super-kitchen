@@ -1,27 +1,28 @@
 import React from "react"
 
 export default function FoodItem(props){
-    
-    const [itemExtras, setItemExtras] = React.useState({
-        styles: "",
-        options: [],
-        with: ""
-    })
+    const styleRef=React.useRef("")
+    const withRef=React.useRef("")
+
+    const [options, setOptions] = React.useState([])
 
     const [addItem,setAddItem]=React.useState({
         name:"",
         price:0
     })
 
+    /* || withRef.current.value === "" */
     /* function that adds the properties of the itemExtras object into the addItem object when Add to Order button is clicked  */
     function handleAddItem(name,price){
+        
         setAddItem({
-            
             name:name,
             price:price,
-            ...itemExtras
+            options:options,
+            styles:styleRef.current.value,
+            with:withRef.current.value
         })
-            
+        
     }
 
     /* adds item to the order when addItem is set*/
@@ -33,30 +34,17 @@ export default function FoodItem(props){
     /* function that sets itemExtras to the value of the selected dropdown/checked checkbox */
     function handleChange(e) {
         
-        const { name, value, type, checked } = e.target
-
-        if (type !== "checkbox") {
-            setItemExtras(prevItemExtras => {
-                return {
-                    ...prevItemExtras,
-                    [name]: value
-                }
-            })
-        }
+        const { value, checked } = e.target
 
         if (checked) { /* add checked food item optionals to options array */
-            setItemExtras(prevItemExtras => {
-                return {
-                    ...prevItemExtras,
-                    options: [...prevItemExtras.options, value]
-                }
+            setOptions(prevOptions => {
+                return [...prevOptions, value]
+                
             })
         } else { /* remove unchecked food item optionals from options array  */
-            setItemExtras(prevItemExtras => {
-                return {
-                    ...prevItemExtras,
-                    options: [...prevItemExtras.options.filter(extra => extra !== value)]
-                }
+            setOptions(prevOptions => {
+                return [...prevOptions.filter(extra => extra !== value)]
+                
             })
         }
         
@@ -163,9 +151,9 @@ export default function FoodItem(props){
                         id="styles"
                         className="p-2 border-2 border-slate-400 rounded-sm text-center self-center w-full max-w-sm bg-white "
                         onChange={handleChange}
-
+                        ref={styleRef}
                     >
-                        <option value="">-- Choose style --</option>
+                        {/* <option value="" >-- Choose style --</option> */}
 
 
                         {props.foodItem.styles.map(style => {
@@ -195,9 +183,10 @@ export default function FoodItem(props){
                         id="with"
                         className="p-2 border-2 border-slate-400 rounded-sm text-center self-center w-full max-w-sm bg-white"
                         onChange={handleChange}
+                        ref={withRef}
                     >
 
-                        <option value="">-- Choose side --</option>
+                        {/* <option value="" ref={withRef}>-- Choose side --</option> */}
 
                         {props.foodItem.with.map(item => {
                             return (<option value={item} key={item}>{item}</option>)

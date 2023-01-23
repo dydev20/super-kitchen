@@ -3,6 +3,14 @@ import { GrFormClose } from "react-icons/gr"
 
 export default function ViewOrder(props){
     
+    function renderItemWith(itemWith){
+        
+            if(itemWith!==undefined){
+                return <li>With {itemWith}</li>    
+            }
+        
+    }
+
     function renderOrderItems(){
         return(
             props.order.map((item, index) => {
@@ -19,6 +27,9 @@ export default function ViewOrder(props){
                                     )
                                 })}
                             </ul>
+                            
+                            {renderItemWith(item.with)}
+                            
                             <li className="mb-2">£{item.price.toFixed(2)}</li>
                         </ul>
                     )
