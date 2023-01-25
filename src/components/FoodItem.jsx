@@ -1,34 +1,11 @@
 import React from "react"
 
 export default function FoodItem(props){
+    
     const styleRef=React.useRef("")
     const withRef=React.useRef("")
 
     const [options, setOptions] = React.useState([])
-
-    const [addItem,setAddItem]=React.useState({
-        name:"",
-        price:0
-    })
-
-    /* function that adds the options array, value of selects into the addItem object when Add to Order button is clicked  */
-    function handleAddItem(name,price){
-        
-        setAddItem({
-            name:name,
-            price:price,
-            options:options,
-            styles:styleRef.current.value,
-            with:withRef.current.value
-        })
-        
-    }
-
-    /* adds item to the order when addItem is set*/
-    React.useEffect(()=>{
-        props.addToOrder(addItem)
-    },[addItem])
-    
 
     /* function that sets itemExtras to the value of the selected dropdown/checked checkbox */
     function handleChange(e) {
@@ -194,7 +171,7 @@ export default function FoodItem(props){
 
             <button 
                 className="bg-green-800 text-white p-2 rounded-sm sm:w-1/2 max-w-xs" 
-                onClick={()=>handleAddItem(props.foodItem.name,props.foodItem.price)}
+                onClick={() => props.handleAddItem(props.foodItem.name, props.foodItem.price, styleRef.current.value, withRef.current.value,options)}
             >Add to Order</button>
             
 

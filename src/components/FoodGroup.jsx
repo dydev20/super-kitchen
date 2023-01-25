@@ -18,6 +18,7 @@ export default function FoodGroup(props){
                                 key={foodItem.id}
                                 foodItem={foodItem}
                                 addToOrder={props.addToOrder}
+                                handleAddItem={props.handleAddItem}
                             />
                         )
                     }

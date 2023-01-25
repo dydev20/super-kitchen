@@ -5,9 +5,9 @@ export default function ViewOrder(props){
     
     function renderItemWith(itemWith){
         
-            if(itemWith!==undefined){
-                return <li>With {itemWith}</li>    
-            }
+        if(itemWith!==undefined){
+            return <li>With {itemWith}</li>    
+        }
         
     }
 
@@ -30,7 +30,8 @@ export default function ViewOrder(props){
                             
                             {renderItemWith(item.with)}
                             
-                            <li className="mb-2">£{item.price.toFixed(2)}</li>
+                            <li>£{item.price.toFixed(2)}</li>
+                            <li><button className="text-sm mb-4" onClick={()=>props.handleRemoveItem(item.id)}>Remove item</button></li>
                         </ul>
                     )
                 }
