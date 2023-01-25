@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function FoodItem(props){
-    
+
     const styleRef=React.useRef("")
     const withRef=React.useRef("")
 
@@ -170,7 +170,7 @@ export default function FoodItem(props){
             <li className="mb-2">£{props.foodItem.price.toFixed(2)}</li>
 
             <button 
-                className="bg-green-800 text-white p-2 rounded-sm sm:w-1/2 max-w-xs" 
+                className="bg-green-800 text-white p-2 rounded-sm hover:bg-green-700 sm:w-1/2 max-w-xs" 
                 onClick={() => props.handleAddItem(props.foodItem.name, props.foodItem.price, styleRef.current.value, withRef.current.value,options)}
             >Add to Order</button>
             

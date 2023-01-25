@@ -7,7 +7,7 @@ export default function PriceDisplay(props){
             <h1>Total Price: £{props.totalPrice.toFixed(2)}</h1>
             
             <button 
-                className="bg-red-700 rounded-sm p-2"
+                className="bg-red-700 rounded-sm p-2 hover:bg-red-600"
                 onClick={props.handleViewOrder}
 
             >View Order</button>
