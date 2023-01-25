@@ -4,7 +4,7 @@ import FoodItem from "./FoodItem"
 export default function FoodGroup(props){
     
     return(
-        <div>
+        <div name={props.name}>
             {/* food group name */}
             <h2 className="font-bold text-center">{props.name}</h2> 
 
