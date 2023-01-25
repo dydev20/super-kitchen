@@ -64,7 +64,7 @@ export default{
                     "id": 11,
                     "name": "Special Curry",
                     "price": 6.80,
-                    "options": ["No onion", "Extra onion", "Sauce extra hot", "Sauce mild"],
+                    "options": ["No onion","Sauce mild"],
                     "with": [
                         "Chips",
                         "Fried rice",
@@ -75,7 +75,7 @@ export default{
                     "id": 12,
                     "name": "Chicken Curry",
                     "price": 6.30,
-                    "options": ["No onion", "Extra onion", "Sauce extra hot", "Sauce mild"],
+                    "options": ["No onion","Sauce mild"],
                     "with": [
                         "Chips",
                         "Fried rice",
@@ -86,7 +86,7 @@ export default{
                     "id": 13,
                     "name": "Breast of Chicken Curry",
                     "price": 6.50,
-                    "options": ["No onion", "Extra onion", "Sauce extra hot", "Sauce mild"],
+                    "options": ["No onion","Sauce mild"],
                     "with": [
                         "Chips",
                         "Fried rice",
@@ -99,8 +99,6 @@ export default{
                     "price": 6.30,
                     "options": [
                         "No onion",
-                        "Extra onion",
-                        "Sauce extra hot",
                         "Sauce mild"
                     ],
                     "with": [
@@ -115,8 +113,6 @@ export default{
                     "price": 6.30,
                     "options": [
                         "No onion",
-                        "Extra onion",
-                        "Sauce extra hot",
                         "Sauce mild"
                     ],
                     "with": [
@@ -131,8 +127,6 @@ export default{
                     "price": 7.10,
                     "options": [
                         "No onion",
-                        "Extra onion",
-                        "Sauce extra hot",
                         "Sauce mild"
                     ],
                     "with": [
@@ -147,7 +141,7 @@ export default{
                         "id": 17,
                         "name": "Sweet & Sour Chicken",
                         "price": 6.30,
-                        "options": ["Curry sauce", "Gravy sauce"],
+                        "styles": ["Sweet & sour sauce","Curry sauce", "Gravy sauce"],
                         "with": [
                             "Chips",
                             "Fried rice",
@@ -159,10 +153,7 @@ export default{
                         "id": 18,
                         "name": "Sweet & Sour Pork",
                         "price": 6.30,
-                        "options": [
-                            "Curry sauce",
-                            "Gravy sauce"
-                        ],
+                        "styles": ["Sweet & sour sauce", "Curry sauce", "Gravy sauce"],
                         "with": [
                             "Chips",
                             "Fried rice",
@@ -173,10 +164,7 @@ export default{
                         "id": 19,
                         "name": "Sweet & Sour King Prawn",
                         "price": 7.10,
-                        "options": [
-                            "Curry sauce",
-                            "Gravy sauce"
-                        ],
+                        "styles": ["Sweet & sour sauce", "Curry sauce", "Gravy sauce"],
                         "with": [
                             "Chips",
                             "Fried rice",
@@ -190,7 +178,7 @@ export default{
                             "name": "Sweet & Sour Chicken Cantonese Style",
                             "price": 6.30,
                             "options": [
-                                "Curry sauce", "No onion", "No peppers"
+                                "No onion", "No peppers"
                             ],
                             "with": ["Chips", "Fried rice", "Boiled rice"]
                         },
@@ -199,7 +187,7 @@ export default{
                             "name": "Sweet & Sour Pork Cantonese Style",
                             "price": 6.30,
                             "options": [
-                                "Curry sauce", "No onion", "No peppers"
+                                "No onion", "No peppers"
                             ],
                             "with": [
                                 "Chips",
@@ -212,7 +200,6 @@ export default{
                             "name": "Sweet & Sour King Prawn Cantonese Style",
                             "price": 7.10,
                             "options": [
-                                "Curry sauce",
                                 "No onion",
                                 "No peppers"
                             ],
