@@ -1,9 +1,9 @@
 # Super Kitchen 
 
 ## Description
-*
+* A web application to calculate the cost of an order from Super Kitchen Chinese takeaway
 
-#### Features 
+## Features 
 * Add food items to order from menu 
 * Users can select, where applicable: 
   * The style the food item is cooked in 
@@ -13,11 +13,11 @@
 * Remove items from order
 * Calculate total price for the order
 
-#### Technologies
+## Technologies
 * React
 * Tailwind CSS
 
-## Screen Shots
+## Screeshots
 #### Desktop
 ![super kitchen - food styles](https://user-images.githubusercontent.com/90397446/215542916-bf3d989c-5b16-4e58-ba7d-47d370d02569.png)
 
