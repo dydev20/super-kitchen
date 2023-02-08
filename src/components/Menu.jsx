@@ -11,6 +11,14 @@ export default function Menu(){
         setMenuOpen(!menuOpen)
     }
 
+    React.useEffect(()=>{
+        if(menuOpen==true){
+            document.body.style.overflow="hidden"
+        }else if(menuOpen==false){
+            document.body.style.overflow = "visible"
+        }
+    },[menuOpen])
+
     return(
         <nav>
             <div className="flex mb-8">
