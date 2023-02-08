@@ -33,7 +33,7 @@ export default function Menu(){
             <div className={menuOpen ? "w-full fixed left-0 top-0 z-20" : "hidden"}>
                 <ul className="flex flex-col h-screen justify-around bg-orange-50 ">
                     <li className="pl-10 font-semibold mt-16 hover:cursor-pointer">
-                        <Link to="Appetisers" smooth={true} duration={500}>Appetisers</Link>
+                        <Link to="Appetisers" smooth={true} duration={500} onClick={toggleMenuOpen}>Appetisers</Link>
                     </li>
                     <li className="pl-10 font-semibold hover:cursor-pointer">
                         <Link to="Soups" smooth={true} duration={500} offset={30} onClick={toggleMenuOpen}>Soups</Link>
