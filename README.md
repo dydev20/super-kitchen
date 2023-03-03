@@ -17,7 +17,7 @@
 * React
 * Tailwind CSS
 
-## Screeshots
+## Screenshots
 ![super kitchen - food styles](https://user-images.githubusercontent.com/90397446/215542916-bf3d989c-5b16-4e58-ba7d-47d370d02569.png)
 
 ![super kitchen - food with   options](https://user-images.githubusercontent.com/90397446/215542926-11287dbb-bf60-420b-af57-851ce0af6508.png)
