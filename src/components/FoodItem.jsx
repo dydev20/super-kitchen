@@ -37,80 +37,42 @@ export default function FoodItem(props){
         }
     }
 
-    /* in a item group, type of value for a property can be different between items */
-    /* function to check type of value for property so if it's not a string, array map can be used*/
-    function typeOfValueIsString(property) {
-        if (typeof property === "string") {
-            return true
-        } else {
-            return false
-        }
-    }
-
+    
     /* function that renders the food item options */
     /* checks if the value of options is of type string*/
     /* if type string then render a single checkbox, if options is an array then map to render a checkbox for each element in array */
     function renderFoodItemOptions(foodItem, foodItemNameForId) {
 
-        
-        if (typeOfValueIsString(foodItem.options) === true) {
+        return (
 
-            //join the options string with a "-" and change to lower case to be used for input label and id
-            const foodItemOptionsForId = foodItem.options.toLowerCase().split(" ").join("-")
-            
-            const optionId = `${foodItemNameForId}-option-${foodItemOptionsForId}`
+            <div className="w-[70%] mx-auto max-w-sm">{
+                foodItem.options.map(option => {
 
-            return (
-                <div className="w-[70%] mx-auto max-w-sm">                
-                    <div className="flex">
+                    //join the options string with a "-" and change to lower case to be used for input label and id
+                    const foodItemOptionsForId = option.toLowerCase().split(" ").join("-")
+                    const optionId = `${foodItemNameForId}-option-${foodItemOptionsForId}`
+
+                    return (
+
+                        <div key={option} className="flex mb-2">
                         
-                        <label htmlFor={optionId}>{foodItem.options}</label>
-                        <input
-                            type="checkbox"
-                            id={optionId}
-                            name="options"
-                            value={foodItem.options}
-                            onChange={handleChange}
-                            className="scale-150 ml-auto"
-                        />
-                        
-                    </div>
-                </div>
-            )
-        } else {
-            return (
-
-                <div className="w-[70%] mx-auto max-w-sm">{
-                    foodItem.options.map(option => {
-
-                        //join the options string with a "-" and change to lower case to be used for input label and id
-                        const foodItemOptionsForId = option.toLowerCase().split(" ").join("-")
-                        const optionId = `${foodItemNameForId}-option-${foodItemOptionsForId}`
-
-                        return (
-
-                            <div key={option} className="flex mb-2">
+                            <label htmlFor={optionId}>{option}</label>
+                            <input
+                                type="checkbox"
+                                id={optionId}
+                                name="options"
+                                value={option}
+                                onChange={handleChange}
+                                className="scale-150 ml-auto"
+                            />
                             
-                                <label htmlFor={optionId}>{option}</label>
-                                <input
-                                    type="checkbox"
-                                    id={optionId}
-                                    name="options"
-                                    value={option}
-                                    onChange={handleChange}
-                                    className="scale-150 ml-auto"
-                                />
-                                
-                            </div>
-                        )
+                        </div>
+                    )
 
-                    })
-                }</div>
-                
-
-            )
-
-        }
+                })
+            }</div>
+            
+        )
     }
 
     return(

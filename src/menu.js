@@ -5,13 +5,13 @@ export default{
             "name": "Barbecued Spare Ribs",
             "price": 5.60,
             "styles": ["Without sauce", "BBQ", "Peking"],
-            "options": "No vegtables"
+            "options": ["No vegtables"]
         },
         {
             "id": 2,
             "name": "Prawn Cocktail",
             "price": 4.00,
-            "options": "No sauce"
+            "options": ["No sauce"]
         },
         {
             "id": 3,
@@ -65,75 +65,42 @@ export default{
                     "name": "Special Curry",
                     "price": 6.80,
                     "options": ["No onion","Sauce mild"],
-                    "with": [
-                        "Chips",
-                        "Fried rice",
-                        "Boiled rice"
-                    ]
+                    "with": ["Chips","Fried rice","Boiled rice"]
                 },
                 {
                     "id": 12,
                     "name": "Chicken Curry",
                     "price": 6.30,
                     "options": ["No onion","Sauce mild"],
-                    "with": [
-                        "Chips",
-                        "Fried rice",
-                        "Boiled rice"
-                    ]
+                    "with": ["Chips","Fried rice","Boiled rice"]
                 },
                 {
                     "id": 13,
                     "name": "Breast of Chicken Curry",
                     "price": 6.50,
                     "options": ["No onion","Sauce mild"],
-                    "with": [
-                        "Chips",
-                        "Fried rice",
-                        "Boiled rice"
-                    ]
+                    "with": ["Chips","Fried rice","Boiled rice"]
                 },
                 {
                     "id": 14,
                     "name": "Pork Curry",
                     "price": 6.30,
-                    "options": [
-                        "No onion",
-                        "Sauce mild"
-                    ],
-                    "with": [
-                        "Chips",
-                        "Fried rice",
-                        "Boiled rice"
-                    ]
+                    "options": ["No onion","Sauce mild"],
+                    "with": ["Chips","Fried rice","Boiled rice"]
                 },
                 {
                     "id": 15,
                     "name": "Beef Curry",
                     "price": 6.30,
-                    "options": [
-                        "No onion",
-                        "Sauce mild"
-                    ],
-                    "with": [
-                        "Chips",
-                        "Fried rice",
-                        "Boiled rice"
-                    ]
+                    "options": ["No onion","Sauce mild"],
+                    "with": ["Chips","Fried rice","Boiled rice"]
                 },
                 {
                     "id": 16,
                     "name": "King Prawn Curry",
                     "price": 7.10,
-                    "options": [
-                        "No onion",
-                        "Sauce mild"
-                    ],
-                    "with": [
-                        "Chips",
-                        "Fried rice",
-                        "Boiled rice"
-                    ]
+                    "options": ["No onion","Sauce mild"],
+                    "with": ["Chips","Fried rice","Boiled rice"]
                 }
             ],
                 "sweetSourBatter": [
@@ -142,11 +109,7 @@ export default{
                         "name": "Sweet & Sour Chicken",
                         "price": 6.30,
                         "styles": ["Sweet & sour sauce","Curry sauce", "Gravy sauce"],
-                        "with": [
-                            "Chips",
-                            "Fried rice",
-                            "Boiled rice"
-                        ]
+                        "with": ["Chips","Fried rice","Boiled rice"]
 
                     },
                     {
@@ -154,22 +117,14 @@ export default{
                         "name": "Sweet & Sour Pork",
                         "price": 6.30,
                         "styles": ["Sweet & sour sauce", "Curry sauce", "Gravy sauce"],
-                        "with": [
-                            "Chips",
-                            "Fried rice",
-                            "Boiled rice"
-                        ]
+                        "with": ["Chips","Fried rice","Boiled rice"]
                     },
                     {
                         "id": 19,
                         "name": "Sweet & Sour King Prawn",
                         "price": 7.10,
                         "styles": ["Sweet & sour sauce", "Curry sauce", "Gravy sauce"],
-                        "with": [
-                            "Chips",
-                            "Fried rice",
-                            "Boiled rice"
-                        ]
+                        "with": ["Chips","Fried rice","Boiled rice"]
                     }
                 ],
                     "sweetSourHK": [
@@ -177,37 +132,22 @@ export default{
                             "id": 20,
                             "name": "Sweet & Sour Chicken Cantonese Style",
                             "price": 6.30,
-                            "options": [
-                                "No onion", "No peppers"
-                            ],
+                            "options": ["No onion", "No peppers"],
                             "with": ["Chips", "Fried rice", "Boiled rice"]
                         },
                         {
                             "id": 21,
                             "name": "Sweet & Sour Pork Cantonese Style",
                             "price": 6.30,
-                            "options": [
-                                "No onion", "No peppers"
-                            ],
-                            "with": [
-                                "Chips",
-                                "Fried rice",
-                                "Boiled rice"
-                            ]
+                            "options": ["No onion", "No peppers"],
+                            "with": ["Chips","Fried rice","Boiled rice"]
                         },
                         {
                             "id": 22,
                             "name": "Sweet & Sour King Prawn Cantonese Style",
                             "price": 7.10,
-                            "options": [
-                                "No onion",
-                                "No peppers"
-                            ],
-                            "with": [
-                                "Chips",
-                                "Fried rice",
-                                "Boiled rice"
-                            ]
+                            "options": ["No onion","No peppers"],
+                            "with": ["Chips","Fried rice","Boiled rice"]
                         }
                     ],
                         "chowMein": [
@@ -233,28 +173,19 @@ export default{
                                 "id": 26,
                                 "name": "Beef Chow Mein",
                                 "price": 6.30,
-                                "options": [
-                                    "No onion",
-                                    "No beansprouts"
-                                ]
+                                "options": ["No onion","No beansprouts"]
                             },
                             {
                                 "id": 27,
                                 "name": "Pork Chow Mein",
                                 "price": 6.30,
-                                "options": [
-                                    "No onion",
-                                    "No beansprouts"
-                                ]
+                                "options": ["No onion","No beansprouts"]
                             },
                             {
                                 "id": 28,
                                 "name": "King Prawn Chow Mein",
                                 "price": 7.10,
-                                "options": [
-                                    "No onion",
-                                    "No beansprouts"
-                                ]
+                                "options": ["No onion","No beansprouts"]
                             }
                         ],
                             "friedRice": [
@@ -262,50 +193,47 @@ export default{
                                     "id": 29,
                                     "name": "Special Fried Rice",
                                     "price": 6.80,
-                                    "options": [
-                                        "No gravy sauce",
-                                        "No king prawn"
-                                    ]
+                                    "options": ["No gravy sauce","No king prawn"]
                                 },
                                 {
                                     "id": 30,
                                     "name": "Breast of Chicken Fried Rice",
                                     "price": 6.50,
-                                    "options": "No gravy sauce"
+                                    "options": ["No gravy sauce"]
                                     
                                 },
                                 {
                                     "id": 31,
                                     "name": "Chicken Fried Rice",
                                     "price": 6.30,
-                                    "options": "No spring onion"
+                                    "options": ["No spring onion"]
                                     
                                 },
                                 {
                                     "id": 32,
                                     "name": "Beef Friced Rice",
                                     "price": 6.30,
-                                    "options": "No spring onion"
+                                    "options": ["No spring onion"]
                                 },
                                 {
                                     "id": 33,
                                     "name": "Pork Fried Rice",
                                     "price": 6.30,
-                                    "options": "No spring onion"
+                                    "options": ["No spring onion"]
                                     
                                 },
                                 {
                                     "id": 34,
                                     "name": "King Prawn Fried Rice",
                                     "price": 7.10,
-                                    "options": "No spring onion"
+                                    "options": ["No spring onion"]
                                     
                                 },
                                 {
                                     "id": 35,
                                     "name": "Ham Fried Rice",
                                     "price": 7.10,
-                                    "options": "No spring onion"
+                                    "options": ["No spring onion"]
                                     
                                 }
                             ],
@@ -326,21 +254,13 @@ export default{
                                         "id": 38,
                                         "name": "Sauce-1",
                                         "price": 2.20,
-                                        "styles": [
-                                            "Curry sauce",
-                                            "Gravy sauce",
-                                            "Sweet & Sour sauce"
-                                        ]
+                                        "styles": ["Curry sauce","Gravy sauce","Sweet & Sour sauce"]
                                     },
                                     {
                                         "id": 39,
                                         "name": "Sauce-2",
                                         "price": 2.50,
-                                        "styles": [
-                                            "Satay sauce",
-                                            "Peking sauce",
-                                            "BBQ sauce"
-                                        ]
+                                        "styles": ["Satay sauce","Peking sauce","BBQ sauce"]
                                     }
                                 ]
 
