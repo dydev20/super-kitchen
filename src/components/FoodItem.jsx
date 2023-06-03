@@ -7,6 +7,9 @@ export default function FoodItem(props){
 
     const [options, setOptions] = React.useState([])
 
+    //join the food item name string with a "-" and change to lower case to be used for labels and input/select ids
+    const foodItemNameForId = props.foodItem.name.toLowerCase().split(" ").join("-")
+
     /* function that sets itemExtras to the value of the selected dropdown/checked checkbox */
     function handleChange(e) {
         
@@ -47,19 +50,24 @@ export default function FoodItem(props){
     /* function that renders the food item options */
     /* checks if the value of options is of type string*/
     /* if type string then render a single checkbox, if options is an array then map to render a checkbox for each element in array */
-    function renderFoodItemOptions(foodItem) {
+    function renderFoodItemOptions(foodItem, foodItemNameForId) {
 
-
-
+        
         if (typeOfValueIsString(foodItem.options) === true) {
+
+            //join the options string with a "-" and change to lower case to be used for input label and id
+            const foodItemOptionsForId = foodItem.options.toLowerCase().split(" ").join("-")
+            
+            const optionId = `${foodItemNameForId}-option-${foodItemOptionsForId}`
+
             return (
                 <div className="w-[70%] mx-auto max-w-sm">                
                     <div className="flex">
                         
-                        <label htmlFor="option">{foodItem.options}</label>
+                        <label htmlFor={optionId}>{foodItem.options}</label>
                         <input
                             type="checkbox"
-                            id="option"
+                            id={optionId}
                             name="options"
                             value={foodItem.options}
                             onChange={handleChange}
@@ -75,14 +83,18 @@ export default function FoodItem(props){
                 <div className="w-[70%] mx-auto max-w-sm">{
                     foodItem.options.map(option => {
 
+                        //join the options string with a "-" and change to lower case to be used for input label and id
+                        const foodItemOptionsForId = option.toLowerCase().split(" ").join("-")
+                        const optionId = `${foodItemNameForId}-option-${foodItemOptionsForId}`
+
                         return (
 
                             <div key={option} className="flex mb-2">
                             
-                                <label htmlFor="options">{option}</label>
+                                <label htmlFor={optionId}>{option}</label>
                                 <input
                                     type="checkbox"
-                                    id="options"
+                                    id={optionId}
                                     name="options"
                                     value={option}
                                     onChange={handleChange}
@@ -119,10 +131,10 @@ export default function FoodItem(props){
             {objectHasProperty(props.foodItem, "styles") &&
                 <li className="flex flex-col w-[70%] mx-auto mb-2">
                     
-                    <label htmlFor="styles" className="mb-1">Styles</label>
+                    <label htmlFor={`${foodItemNameForId}-styles`} className="mb-1">Styles</label>
                     <select
                         name="styles"
-                        id="styles"
+                        id={`${foodItemNameForId}-styles`}
                         className="p-2 border-2 border-slate-400 rounded-sm text-center self-center w-full max-w-sm bg-white "
                         onChange={handleChange}
                         ref={styleRef}
@@ -140,7 +152,7 @@ export default function FoodItem(props){
             {/* if food item has property "options then render options" */}
             {objectHasProperty(props.foodItem, "options") &&
                 
-                <li className="my-4">{renderFoodItemOptions(props.foodItem)}</li>
+                <li className="my-4">{renderFoodItemOptions(props.foodItem, foodItemNameForId)}</li>
                 
             }
 
@@ -149,10 +161,10 @@ export default function FoodItem(props){
             {objectHasProperty(props.foodItem, "with") &&
                 <li className="flex flex-col w-[70%] mx-auto mb-2">
                 
-                    <label htmlFor="with" className="mb-1">With</label>
+                    <label htmlFor={`${foodItemNameForId}-with`} className="mb-1">With</label>
                     <select
                         name="with"
-                        id="with"
+                        id={`${foodItemNameForId}-with`}
                         className="p-2 border-2 border-slate-400 rounded-sm text-center self-center w-full max-w-sm bg-white"
                         onChange={handleChange}
                         ref={withRef}

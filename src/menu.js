@@ -324,7 +324,7 @@ export default{
                                     },
                                     {
                                         "id": 38,
-                                        "name": "Sauce",
+                                        "name": "Sauce-1",
                                         "price": 2.20,
                                         "styles": [
                                             "Curry sauce",
@@ -334,7 +334,7 @@ export default{
                                     },
                                     {
                                         "id": 39,
-                                        "name": "Sauce",
+                                        "name": "Sauce-2",
                                         "price": 2.50,
                                         "styles": [
                                             "Satay sauce",
